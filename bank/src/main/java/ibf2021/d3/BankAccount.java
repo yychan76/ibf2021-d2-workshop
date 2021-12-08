@@ -64,7 +64,15 @@ account holder’s name and account number are read only properties. They are se
         return this.balance;
     }
 
-    public void setBalance(float balance) {
+    /* Note that if setting this setBalance method to public, child classes would
+    be able to override this method, which then takes precedence when the parent
+    constructor is called
+
+    >>calling an overridable method from a constructor is a well-known antipattern.
+
+    https://stackoverflow.com/questions/16558747/overriding-a-base-class-method-in-a-derived-class
+    */
+    private void setBalance(float balance) {
         this.balance = balance;
     }
 
